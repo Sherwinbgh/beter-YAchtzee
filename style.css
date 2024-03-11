@@ -1,0 +1,34 @@
+body{
+    background-color: rgb(105, 105, 105);
+}
+.dice-container{
+    text-align: center;
+    row-gap: 150px;
+}
+.dice{
+    width: 100px;
+}
+.table{
+    display: table;
+    width:20%;
+    cursor:pointer;
+    color: black;
+    flex-direction: row;
+}
+  .cell {
+    display: table-cell;
+    border: 1px solid;
+    padding: 7px;
+    text-align: center;
+    width:1%;
+    border-color: rgb(4,83,83);
+    color:rgb(0, 0, 0);
+    font-size: 12px;
+    flex-direction: row;
+}
+.header{
+    background-color: rgb(205, 41, 41);
+}
+.button-container{
+    text-align: center;
+}

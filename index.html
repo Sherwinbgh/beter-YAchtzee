@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" >
+    <title>Yachtzee</title>
+</head>
+<body>
+  <div class="dice-container" id="player1Container">
+      <img src="dice_images/Dice-1.png" alt="" class="dice" id="Die1">
+      <img src="dice_images/Dice-2.png" alt="" class="dice" id="Die2">
+      <img src="dice_images/Dice-3.png" alt="" class="dice" id="Die3">
+      <img src="dice_images/Dice-4.png" alt="" class="dice" id="Die4">
+      <img src="dice_images/Dice-5.png" alt="" class="dice" id="Die5">
+  </div>
+  <div class="button-container">
+  <button type="button" onclick="rollDice()">Roll dice</button>
+</div>
+<div id="scoreTable" class="table">
+  <div class="header">
+    <div class="header-cell"></div>
+    <div class="header-cell">Player 1</div>
+  </div>
+  <div class="row">
+    <div class="cell">Ones</div>
+    <div class="cell" id="one1" data-row="1" data-column="1"></div>
+  </div>
+  <div class="row">
+    <div class="cell">Twos</div>
+    <div class="cell" id="two1" data-row="2" data-column="1"></div>
+  </div>
+  <div class="row">
+    <div class="cell">Threes</div>
+    <div class="cell" id="three1" data-row="3" data-column="1"></div>
+  </div>
+  <div class="row">
+    <div class="cell">Fours</div>
+    <div class="cell" id="four1" data-row="4" data-column="1"></div>
+  </div>
+  <div class="row">
+    <div class="cell">Fives</div>
+    <div class="cell" id="five1" data-row="5" data-column="1"></div>
+  </div>
+  <div class="row">
+    <div class="cell">Sixs</div>
+    <div class="cell" id="six1" data-row="6" data-column="1"></div>
+  </div>
+  <div class="row" id="sumCaption">
+    <div class="cell">Sum</div>
+    <div class="cell" id="sum1"></div>
+  </div>
+  <div class="row" id="bonusCaption">
+    <div class="cell">Bonus</div>
+    <div class="cell" id="bonus1"></div>
+  </div>
+  <div class="row">
+    <div class="cell">Three of a kind</div>
+    <div class="cell" id="Threeofakind1" data-row="7" data-column="1"></div>
+  </div>
+  <div class="row">
+    <div class="cell">Four of a kind</div>
+    <div class="cell" id="fourofakind1" data-row="8" data-column="1"></div>
+  </div>
+  <div class="row">
+    <div class="cell">Full houce</div>
+    <div class="cell" id="fullhouce1" data-row="9" data-column="1"></div>
+  </div>
+  <div class="row">
+    <div class="cell">Small straight</div>
+    <div class="cell" id="smallstraight1" data-row="10" data-column="1"></div>
+  </div>
+  <div class="row">
+    <div class="cell">Large straight</div>
+    <div class="cell" id="largestraight1" data-row="11" data-column="1"></div>
+  </div>
+  <div class="row">
+    <div class="cell">Chance</div>
+    <div class="cell" id="chance1" data-row="12" data-column="1"></div>
+  </div>
+  <div class="row">
+    <div class="cell">Yachtzee</div>
+    <div class="cell" id="yachtzee1" data-row="13" data-column="1"></div>
+  </div>
+  <div class="row">
+    <div class="cell" id="totalCaption">Total score</div>
+    <div class="cell" id="total1" data-row="14" data-column="1"></div>
+  </div>
+</div>
+<img src="javascript in nutshell.png" alt="">
+  <script src="Yachtzee.js"></script>
+</body>
+</html>
