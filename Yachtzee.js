@@ -2,50 +2,69 @@ let player1Score=[];
 let player1Dice=[];
 let rollCount=0;
 let roundCount=0;
-let isPlayerOneTurn=true;
-let transformValues=[
-[0,30],[-5,40],[0,35],[5,40],[0,30]
-];
+
+const canthrow = [false,false,false,false,false];
 const rollButton = document.getElementById("roll");
-const player1Container=document.getElementById("player1Container");
-const diceElements=document.querySelectorAll(".dice");
-const scoreTableCells=document.querySelectorAll(".cell");
-function rollDice(){
-  let die1;
-  let die2;
-  let die3;
-  let die4;
-  let die5;
+const diceElements = document.querySelectorAll(".dice");
+const scoreTableCells = document.querySelectorAll(".cell");
+const dices = document.querySelectorAll(".dice");
+const allecells=document.querySelectorAll(".cell");
+//roll dice werkend maar moet nog de fotos eruit halen
+console.log(dices);
+function rollDice() {
+    rollCount++;
+    let randomDice = [];
 
-  const dice1 = document.getElementById("Dice-1");
-  const dice2 = document.getElementById("Dice-2");
-  const dice3 = document.getElementById("Dice-3");
-  const dice4 = document.getElementById("Dice-4");
-  const dice5 = document.getElementById("Dice-5");
+    for(var i = 0; i < 5;i++){
+        if(canthrow[i]){
+            continue;
+        }
+        dices [i].src = "dice_images/Dice-" + randomnumber() + ".png";
+    }
+    console.log(randomDice);
+  }
+dices.forEach((dice,index) => {
+    dice.onclick = function(){
+        if(canthrow[index]){
+            canthrow[index] = false;
+        }
+        else{
+            canthrow[index] = true;
+        }
+        console.log(canthrow)
+    }
+});
 
-  //roll count doet het alleen nog images er bij zetten//
-  rollCount++;
-  randomDice=[];
-  die1 = randomnumber();
-  randomDice.push(die1);
-
-  die2 = randomnumber();
-  randomDice.push(die2);
-
-  die3 = randomnumber();
-  randomDice.push(die3);
-
-  die4 = randomnumber();
-  randomDice.push(die4);
-
-  die5 = randomnumber();
-  randomDice.push(die5);
-}
 function randomnumber(){
     let random = Math.floor(Math.random()*6)+1;
-    console.log(random);
     return random;
 }
-// hold button kan ik hier zetten
-// cell kan ik hier zetten met holographic efect
-// rekenen kan ik later doen
+function resetGameState() {
+    rollsLeft = 3;
+    selectedDice = [];
+    updateRollsLeft();
+}
+// forloop
+let cells=[];
+selectcells();
+function selectcells(){
+    for(var i = 0; i < allecells.length;i++){
+        if(i%2==0){
+            continue
+        }
+        cells.push(allecells[i])
+    }
+}
+
+//nummer veranderd van rood naar zwart alleen moet getest worden
+/*
+function changecolor(){
+    var cell = document.getElementById();
+    if(cell.style.color === 'red'){
+        cell.style.color === 'black';
+    } else {
+        cell.style.color ==='red';
+    }
+}
+*/
+//rekenen
