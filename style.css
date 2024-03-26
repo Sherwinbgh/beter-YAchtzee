@@ -1,18 +1,28 @@
-body{
-    background-color: rgb(105, 105, 105);
+body {
+    background-color: rgb(5, 5, 5);
 }
-.dice-container{
+.dice-container {
     text-align: center;
     row-gap: 150px;
 }
-.dice{
+.dice {
     width: 100px;
     border-radius: 20px;
 }
-.table{
+.table {
     display: table;
-    width:20%;
-    cursor:pointer;
+    position: absolute;
+    width: 20%;
+    cursor: pointer;
+    color: black;
+    flex-direction: row;
+}
+.specialContainer {
+    display: table;
+    position: absolute;
+    right: 0;
+    width: 20%;
+    cursor: pointer;
     color: black;
     flex-direction: row;
 }
@@ -21,18 +31,15 @@ body{
     border: 1px solid;
     padding: 7px;
     text-align: center;
-    width:1%;
-    border-color: rgb(4,83,83);
-    color:rgb(0, 0, 0);
+    width: 1%;
+    border-color: rgb(7, 250, 3);
+    color: rgb(255, 255, 255);
     font-size: 12px;
     flex-direction: row;
 }
-.cellcliker{
-    color: aqua;
-}
-.header{
+.header {
     background-color: rgb(205, 41, 41);
 }
-.button-container{
+.button-container {
     text-align: center;
 }
