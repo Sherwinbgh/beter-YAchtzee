@@ -17,9 +17,12 @@ const scoreTableCells = document.querySelectorAll(".cell");
 const dices = document.querySelectorAll(".dice");
 const allecells = document.querySelectorAll(".cell");
 let special = document.querySelectorAll(".special");
-
 //roll dice werkend
 function rollDice() {
+    if (rollCount === 3){
+        alert("je 3 keer gerolt");
+         return;
+    }
     rollCount++;
     for (var i = 0; i < 5; i++) {
         if (canthrow[i]) {
@@ -87,12 +90,12 @@ function resetRound() {
     }
     for (let i = 0; i < 6; i++) {
         let value = document.getElementById(`score${i + 1}`);
-        if (value.name != "locked") {
+        if (value.parentElement.name != "locked") {
             value.textContent = "0";
         }
     }
     special.forEach(cells => {
-        if (cells.name != "locked") {
+        if (cells.parentElement.name != "locked") {
             cells.textContent = "0";
         }
     });
@@ -118,10 +121,10 @@ function click() {
                 }
             }
             resetRound();
+            console.log(cells);
         });
     });
 }
-
 function clickSpecial() {
     var specialcells = document.querySelectorAll(".datascore2");
     specialcells.forEach(cells => {
@@ -138,20 +141,16 @@ function clickSpecial() {
                 }
             }
             resetRound();
+            console.log(cells);
         });
     });
 }
-
-function calcGrand() {
-    grandTotal = firstTotal + secondTotal;
-    document.getElementById("grandtotal").textContent = grandTotal;
-}
-
 click();
 clickSpecial();
 function cellsin() {
     for (let i = 0; i < 6; i++) {
         const value = document.getElementById(`score${i + 1}`);
+        if (value.parentElement.name === "locked") return;
         if (telldubbelsteen[i + 1] == undefined) {
             value.textContent = 0;
         } else {
@@ -206,6 +205,7 @@ function maaklijstvanobject() {
 let total2 = threeofakinds() + fourofakinds() + fullhouce() + fullhouce() + smallstraught() + largestraight() + chance() + yachtzee()
 function threeofakinds() {
     let tkind = document.getElementById("TOAK");
+    if (tkind.parentElement.name === 'locked') return;
     if (maaklijstvanobjects.includes(3) || maaklijstvanobjects.includes(4) || maaklijstvanobjects.includes(5)) {
         tkind.textContent = lijstdubbelsteen.reduce((a, b) => a + b, 0);
     } else {
@@ -214,6 +214,7 @@ function threeofakinds() {
 }
 function fourofakinds() {
     let fkind = document.getElementById("FOAK");
+    if (fkind.parentElement.name === 'locked') return;
     if (maaklijstvanobjects.includes(4) || maaklijstvanobjects.includes(5)) {
         fkind.textContent = lijstdubbelsteen.reduce((a, b) => a + b, 0);
     } else {
@@ -222,6 +223,7 @@ function fourofakinds() {
 }
 function fullhouce() {
     let fullhouse = document.getElementById("full");
+    if (fullhouse.parentElement.name === 'locked') return;
     if (maaklijstvanobjects.includes(3) && maaklijstvanobjects.includes(2)) {
         fullhouse.textContent = 25;
     } else {
@@ -230,6 +232,7 @@ function fullhouce() {
 }
 function smallstraught() {
     let smallstraight = document.getElementById("small");
+    if (smallstraight.parentElement.name === 'locked') return;
     lijstdubbelsteen.sort();
     if (/1234|2345|3456/.test(lijstdubbelsteen.join("").replace(/(.)\1/, "$1"))) {
         smallstraight.textContent = 30;
@@ -240,6 +243,7 @@ function smallstraught() {
 }
 function largestraight() {
     let largestraight = document.getElementById("large");
+    if (largestraight.parentElement.name === 'locked') return;
     lijstdubbelsteen.sort();
     if (/12345|23456/.test(lijstdubbelsteen.join("").replace(/(.)\1/, "$1"))) {
         largestraight.textContent = 40;
@@ -250,6 +254,7 @@ function largestraight() {
 }
 function chance() {
     let chance = document.getElementById("chance");
+    if (chance.parentElement.name === 'locked') return;
     chance.textContent = lijstdubbelsteen.reduce((a, b) => a + b, 0);
 }
 function yachtzee() {
@@ -259,4 +264,8 @@ function yachtzee() {
     } else {
         yachtzee.textContent = 0;
     }
+}
+function calcGrand() {
+    grandTotal = firstTotal + secondTotal;
+    document.getElementById("grandtotal").textContent = grandTotal;
 }
